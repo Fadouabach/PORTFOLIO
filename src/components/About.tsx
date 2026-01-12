@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { PROFILE } from "../constants";
+import { PROFILE, EDUCATION } from "../constants";
 
 const About = () => {
     return (
@@ -23,6 +23,21 @@ const About = () => {
                 >
                     <div className="text-lg md:text-xl text-secondary leading-relaxed space-y-6">
                         <p>{PROFILE.bio}</p>
+
+                        <div className="space-y-4 pt-4">
+                            <h3 className="text-2xl font-semibold text-white">Education</h3>
+                            <div className="space-y-4">
+                                {EDUCATION.map((edu, index) => (
+                                    <div key={index} className="border-l-2 border-accent pl-4">
+                                        <h4 className="text-white font-medium">{edu.degree}</h4>
+                                        <div className="flex justify-between items-center text-sm text-secondary/80 mt-1">
+                                            <span>{edu.institution} • {edu.period}</span>
+                                            <span>{edu.status}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                     <div className="relative">
                         <div className="w-full aspect-square border-2 border-white/10 rounded-lg overflow-hidden relative group">
